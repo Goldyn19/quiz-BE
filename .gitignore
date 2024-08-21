@@ -1,0 +1,49 @@
+## Database files
+db.sqlite3
+#
+## Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+#
+## Django migrations
+**/migrations/*
+!**/migrations/__init__.py
+
+## Environment variables
+.env
+*.env
+
+## Django static and media files
+staticfiles/
+static/
+media/
+
+## Local settings
+local_settings.py
+#
+## Logs
+*.log
+
+## IDE configurations
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+#
+## System files
+#.DS_Store
+#Thumbs.db
+#
+## Coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+#
+## Jupyter Notebook
+#.ipynb_checkpoints
