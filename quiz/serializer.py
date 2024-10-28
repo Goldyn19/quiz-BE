@@ -6,13 +6,24 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = '__all__'
+        extra_kwargs = {
+            'created_by': {'read_only': True},
+            'image': {'required': False}
+        }
 
 
 class QuizSerializer(serializers.ModelSerializer):
+    created_by_username = serializers.CharField(source='created_by.username', read_only=True)
+    question_count = serializers.SerializerMethodField()
+
     class Meta:
         model = Quiz
-        fields = ['id', 'name', 'created_by']
-        read_only_fields = ['id', 'created_by']
+        fields = ['id', 'name', 'created_by', 'created_by_username', 'question_count']
+        read_only_fields = ['id', 'created_by', 'created_by_username', 'question_count']
+
+    def get_question_count(self, obj):
+
+        return obj.questions.count()
 
 
 class PlayerSerializer(serializers.ModelSerializer):
